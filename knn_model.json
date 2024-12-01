@@ -1,0 +1,302 @@
+{
+    "data": [
+        {
+            "Outlook": "Sunny",
+            "Temperature": "Hot",
+            "Humidity": "High",
+            "Wind": "Weak",
+            "PlayTenis": "No"
+        },
+        {
+            "Outlook": "Sunny",
+            "Temperature": "Hot",
+            "Humidity": "High",
+            "Wind": "Strong",
+            "PlayTenis": "No"
+        },
+        {
+            "Outlook": "Overcast",
+            "Temperature": "Hot",
+            "Humidity": "High",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Rain",
+            "Temperature": "Mild",
+            "Humidity": "High",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Rain",
+            "Temperature": "Cool",
+            "Humidity": "Normal",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Rain",
+            "Temperature": "Cool",
+            "Humidity": "Normal",
+            "Wind": "Strong",
+            "PlayTenis": "No"
+        },
+        {
+            "Outlook": "Overcast",
+            "Temperature": "Cool",
+            "Humidity": "Normal",
+            "Wind": "Strong",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Sunny",
+            "Temperature": "Mild",
+            "Humidity": "High",
+            "Wind": "Weak",
+            "PlayTenis": "No"
+        },
+        {
+            "Outlook": "Sunny",
+            "Temperature": "Cool",
+            "Humidity": "Normal",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Rain",
+            "Temperature": "Mild",
+            "Humidity": "Normal",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Sunny",
+            "Temperature": "Mild",
+            "Humidity": "Normal",
+            "Wind": "Strong",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Overcast",
+            "Temperature": "Mild",
+            "Humidity": "High",
+            "Wind": "Strong",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Overcast",
+            "Temperature": "Hot",
+            "Humidity": "Normal",
+            "Wind": "Weak",
+            "PlayTenis": "Yes"
+        },
+        {
+            "Outlook": "Rain",
+            "Temperature": "Mild",
+            "Humidity": "High",
+            "Wind": "Strong",
+            "PlayTenis": "No"
+        }
+    ],
+    "encoded_data": [
+        {
+            "Outlook_Sunny": 1,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 1,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 1,
+            "PlayTenis_Yes": 0
+        },
+        {
+            "Outlook_Sunny": 1,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 1,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 1,
+            "PlayTenis_Yes": 0
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 1,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 1,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 1,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 1,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 1,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 1,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 1,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 1,
+            "PlayTenis_Yes": 0
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 1,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 1,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 1,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 1,
+            "PlayTenis_Yes": 0
+        },
+        {
+            "Outlook_Sunny": 1,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 1,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 1,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 1,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 1,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 1,
+            "Outlook_Rain": 0,
+            "Temperature_Hot": 1,
+            "Temperature_Mild": 0,
+            "Temperature_Cool": 0,
+            "Humidity_High": 0,
+            "Humidity_Normal": 1,
+            "Wind_Weak": 1,
+            "Wind_Strong": 0,
+            "PlayTenis_No": 0,
+            "PlayTenis_Yes": 1
+        },
+        {
+            "Outlook_Sunny": 0,
+            "Outlook_Overcast": 0,
+            "Outlook_Rain": 1,
+            "Temperature_Hot": 0,
+            "Temperature_Mild": 1,
+            "Temperature_Cool": 0,
+            "Humidity_High": 1,
+            "Humidity_Normal": 0,
+            "Wind_Weak": 0,
+            "Wind_Strong": 1,
+            "PlayTenis_No": 1,
+            "PlayTenis_Yes": 0
+        }
+    ],
+    "k_value": 1,
+    "distance_metric": "euclidean"
+}
