@@ -1,0 +1,75 @@
+K-Nearest Neighbors Classification Log
+======================================
+
+General Settings:
+-----------------
+k (Number of Neighbors): 3
+Distance Metric: Manhattan
+Total Test Instances: 14
+
+Original Dataset:
+-----------------
+Outlook;Temperature;Humidity;Wind;PlayTenis
+
+Sunny;Hot;High;Weak;No
+
+Sunny;Hot;High;Strong;No
+
+Overcast;Hot;High;Weak;Yes
+
+Rain;Mild;High;Weak;Yes
+
+Rain;Cool;Normal;Weak;Yes
+
+Rain;Cool;Normal;Strong;No
+
+Overcast;Cool;Normal;Strong;Yes
+
+Sunny;Mild;High;Weak;No
+
+Sunny;Cool;Normal;Weak;Yes
+
+Rain;Mild;Normal;Weak;Yes
+
+Sunny;Mild;Normal;Strong;Yes
+
+Overcast;Mild;High;Strong;Yes
+
+Overcast;Hot;Normal;Weak;Yes
+
+Rain;Mild;High;Strong;No
+
+
+
+Prediction Details:
+-------------------
+Instance, Predicted Label, Actual Label, Correct/Incorrect, Nearest Neighbors (IDs and Distances)
+1, 0, 0, Correct, [(1, 2.00), (2, 2.00), (7, 2.00)]
+2, 0, 0, Correct, [(0, 2.00), (2, 4.00), (7, 4.00)]
+3, 0, 1, Incorrect, [(0, 2.00), (12, 2.00), (1, 4.00)]
+4, 0, 1, Incorrect, [(7, 2.00), (9, 2.00), (13, 2.00)]
+5, 1, 1, Correct, [(5, 2.00), (8, 2.00), (9, 2.00)]
+6, 1, 0, Incorrect, [(4, 2.00), (6, 2.00), (8, 4.00)]
+7, 1, 1, Correct, [(5, 2.00), (4, 4.00), (8, 4.00)]
+8, 0, 0, Correct, [(0, 2.00), (3, 2.00), (1, 4.00)]
+9, 0, 1, Incorrect, [(4, 2.00), (0, 4.00), (5, 4.00)]
+10, 1, 1, Correct, [(3, 2.00), (4, 2.00), (5, 4.00)]
+11, 0, 1, Incorrect, [(1, 4.00), (5, 4.00), (6, 4.00)]
+12, 0, 1, Incorrect, [(13, 2.00), (1, 4.00), (2, 4.00)]
+13, 1, 1, Correct, [(2, 2.00), (0, 4.00), (4, 4.00)]
+14, 1, 0, Incorrect, [(3, 2.00), (11, 2.00), (1, 4.00)]
+
+Confusion Matrix:
+-----------------
+          Predicted: Yes  Predicted: No
+Actual: Yes    4               5
+Actual: No     2               3
+
+Performance Metrics:
+--------------------
+Accuracy: 0.50
+Precision (Yes): 0.67
+Recall (Yes): 0.44
+F1 Score (Yes): 0.53
+
+End of Log.

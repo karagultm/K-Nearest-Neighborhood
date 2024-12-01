@@ -297,6 +297,6 @@
             "PlayTenis_Yes": 0
         }
     ],
-    "k_value": 1,
-    "distance_metric": "euclidean"
+    "k_value": 3,
+    "distance_metric": "manhattan"
 }

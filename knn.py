@@ -88,82 +88,117 @@ def calculate_distances(X_train, X_test, metric):
 def loocv_test(data,encoded_data, k, metric):
     correct_predictions = 0
     total_predictions = len(data)
-    print("total_predictions",total_predictions)
-    # Confusion Matrix'i oluşturmak için başlangıç değerleri
-    true_positive = 0  # "Yes" olarak doğru tahmin
-    false_positive = 0  # "No" iken "Yes" olarak yanlış tahmin
-    true_negative = 0  # "No" olarak doğru tahmin
-    false_negative = 0  # "Yes" iken "No" olarak yanlış tahmin
-    for i in range(len(data)):
-        # Test verisini ayır
-        test_data = encoded_data.iloc[i]
-        train_data = encoded_data.drop(i)
-        # print("train_data",train_data)
-        # print("test_data",test_data)
-        # Özellikleri ve çıktıyı ayır
-        X_train, y_train = features_and_output(train_data)
-        X_test, y_test = features_and_output(pd.DataFrame([test_data]))
+    # Log dosyasını aç
+    with open("classification_log.txt", "w") as log_file:
+        log_file.write("K-Nearest Neighbors Classification Log\n")
+        log_file.write("======================================\n\n")
+        log_file.write("General Settings:\n")
+        log_file.write("-----------------\n")
+        log_file.write(f"k (Number of Neighbors): {k}\n")
+        log_file.write(f"Distance Metric: {metric.capitalize()}\n")
+        log_file.write(f"Total Test Instances: {total_predictions}\n\n")
+        log_file.write("Original Dataset:\n")
+        log_file.write("-----------------\n")
+        log_file.write(data.to_csv(index=False, sep=";"))
+        log_file.write("\n\n")
+        log_file.write("Prediction Details:\n")
+        log_file.write("-------------------\n")
+        log_file.write("Instance, Predicted Label, Actual Label, Correct/Incorrect, Nearest Neighbors (IDs and Distances)\n")
 
-        # print("X_train",X_train)
-        # print("X_test",X_test)
-        # print("X_test.iloc[0]",X_test.iloc[0])
-        # print("y_train",y_train)
-        # print("y_test",y_test)
-        # Mesafeleri hesapla
-        distances = calculate_distances(X_train, X_test.iloc[0], metric)
-        # print("distances",distances)
+        print("total_predictions",total_predictions)
+        # Confusion Matrix'i oluşturmak için başlangıç değerleri
+        true_positive = 0  # "Yes" olarak doğru tahmin
+        false_positive = 0  # "No" iken "Yes" olarak yanlış tahmin
+        true_negative = 0  # "No" olarak doğru tahmin
+        false_negative = 0  # "Yes" iken "No" olarak yanlış tahmin
+        for i in range(len(data)):
+            # Test verisini ayır
+            test_data = encoded_data.iloc[i]
+            train_data = encoded_data.drop(i)
+            # print("train_data",train_data)
+            # print("test_data",test_data)
+            # Özellikleri ve çıktıyı ayır
+            X_train, y_train = features_and_output(train_data)
+            X_test, y_test = features_and_output(pd.DataFrame([test_data]))
 
-        # En yakın k komşuyu bul
-        nearest_neighbors = distances.nsmallest(k).index
-        # print("nearest_neighbors",nearest_neighbors)
-        nearest_labels = y_train.loc[nearest_neighbors]
-        # print("nearest_labels",nearest_labels)
-        # Sınıfı tahmin et
-        prediction = nearest_labels.mode()[0]
-        print("prediction",prediction)
-        # print(f"\nTest Verisi: {test_data}")
-        # print(f"Tahmin: {prediction}")
-        # print(f"True Positive: {true_positive}")
-        # print(f"False Positive: {false_positive}")
-        # print(f"True Negative: {true_negative}")
-        # print(f"False Negative: {false_negative}")
-        print("y_test.iloc[0]",y_test.iloc[0])
-        print("correct_predictions",correct_predictions)
-        # Tahminin doğruluğunu kontrol et
-        if prediction == y_test.iloc[0]:
-            correct_predictions += 1
-        # Confusion Matrix için güncelleme
-        if y_test.iloc[0] == 1 and prediction == 1:
-            true_positive += 1
-        elif y_test.iloc[0] == 0 and prediction == 1:
-            false_positive += 1
-        elif y_test.iloc[0] == 0 and prediction == 0:
-            true_negative += 1
-        elif y_test.iloc[0] == 1 and prediction == 0:
-            false_negative += 1
+            # print("X_train",X_train)
+            # print("X_test",X_test)
+            # print("X_test.iloc[0]",X_test.iloc[0])
+            # print("y_train",y_train)
+            # print("y_test",y_test)
+            # Mesafeleri hesapla
+            distances = calculate_distances(X_train, X_test.iloc[0], metric)
+            # print("distances",distances)
+
+            # En yakın k komşuyu bul
+            nearest_neighbors = distances.nsmallest(k).index
+            # print("nearest_neighbors",nearest_neighbors)
+            nearest_labels = y_train.loc[nearest_neighbors]
+            # print("nearest_labels",nearest_labels)
+            # Sınıfı tahmin et
+            prediction = nearest_labels.mode()[0]
+            # print("prediction",prediction)
+            # print(f"\nTest Verisi: {test_data}")
+            # print(f"Tahmin: {prediction}")
+            # print(f"True Positive: {true_positive}")
+            # print(f"False Positive: {false_positive}")
+            # print(f"True Negative: {true_negative}")
+            # print(f"False Negative: {false_negative}")
+            # print("y_test.iloc[0]",y_test.iloc[0])
+            # print("correct_predictions",correct_predictions)
+            correctness = "Correct" if prediction == y_test.iloc[0] else "Incorrect"
+            nearest_neighbors_info = ", ".join([f"({idx}, {dist:.2f})" for idx, dist in distances[nearest_neighbors].items()])
+            log_file.write(f"{i + 1}, {prediction}, {y_test.iloc[0]}, {correctness}, [{nearest_neighbors_info}]\n")
+
+            # Tahminin doğruluğunu kontrol et
+            if prediction == y_test.iloc[0]:
+                correct_predictions += 1
+            # Confusion Matrix için güncelleme
+            if y_test.iloc[0] == 1 and prediction == 1:
+                true_positive += 1
+            elif y_test.iloc[0] == 0 and prediction == 1:
+                false_positive += 1
+            elif y_test.iloc[0] == 0 and prediction == 0:
+                true_negative += 1
+            elif y_test.iloc[0] == 1 and prediction == 0:
+                false_negative += 1
         
 
-    accuracy = (correct_predictions / total_predictions) 
-    
-    # Confusion Matrix'i yazdır
-    conf_matrix = [
-        [true_positive, false_negative],  # Yes için [TP, FN]
-        [false_positive, true_negative],  # No için [FP, TN]
-    ]
-    
-    print("\nConfusion Matrix:")
-    print(f"          Predicted: Yes  Predicted: No")
-    print(f"Actual: Yes    {conf_matrix[0][0]}               {conf_matrix[0][1]}")
-    print(f"Actual: No     {conf_matrix[1][0]}               {conf_matrix[1][1]}")
-    # Ek performans metrikleri
-    precision = true_positive / (true_positive + false_positive) if (true_positive + false_positive) > 0 else 0
-    recall = true_positive / (true_positive + false_negative) if (true_positive + false_negative) > 0 else 0
-    f1_score = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+        accuracy = (correct_predictions / total_predictions) 
+        
+        # Confusion Matrix'i yazdır
+        conf_matrix = [
+            [true_positive, false_negative],  # Yes için [TP, FN]
+            [false_positive, true_negative],  # No için [FP, TN]
+        ]
+        
+        print("\nConfusion Matrix:")
+        print(f"          Predicted: Yes  Predicted: No")
+        print(f"Actual: Yes    {conf_matrix[0][0]}               {conf_matrix[0][1]}")
+        print(f"Actual: No     {conf_matrix[1][0]}               {conf_matrix[1][1]}")
+        # Ek performans metrikleri
+        precision = true_positive / (true_positive + false_positive) if (true_positive + false_positive) > 0 else 0
+        recall = true_positive / (true_positive + false_negative) if (true_positive + false_negative) > 0 else 0
+        f1_score = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
 
-    print(f"\nAccuracy: {accuracy:.2f}")
-    print(f"Precision (Yes): {precision:.2f}")
-    print(f"Recall (Yes): {recall:.2f}")
-    print(f"F1 Score (Yes): {f1_score:.2f}")
+        print(f"\nAccuracy: {accuracy:.2f}")
+        print(f"Precision (Yes): {precision:.2f}")
+        print(f"Recall (Yes): {recall:.2f}")
+        print(f"F1 Score (Yes): {f1_score:.2f}")
+        # Confusion Matrix'i ve metrikleri log dosyasına ekle
+        log_file.write("\nConfusion Matrix:\n")
+        log_file.write("-----------------\n")
+        log_file.write(f"          Predicted: Yes  Predicted: No\n")
+        log_file.write(f"Actual: Yes    {conf_matrix[0][0]}               {conf_matrix[0][1]}\n")
+        log_file.write(f"Actual: No     {conf_matrix[1][0]}               {conf_matrix[1][1]}\n\n")
+
+        log_file.write("Performance Metrics:\n")
+        log_file.write("--------------------\n")
+        log_file.write(f"Accuracy: {accuracy:.2f}\n")
+        log_file.write(f"Precision (Yes): {precision:.2f}\n")
+        log_file.write(f"Recall (Yes): {recall:.2f}\n")
+        log_file.write(f"F1 Score (Yes): {f1_score:.2f}\n")
+        log_file.write("\nEnd of Log.\n")
 
 def save_model(data,encoded_data, k_value, distance_metric):
     try:
